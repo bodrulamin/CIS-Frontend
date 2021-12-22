@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Shout Now </h1>
+<div mat-dialog-content style="width: 50%;">
+
+
+
+  <p>What's your Name?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="shout.name"  >
+  </mat-form-field>
+
+    
+  <p>What's your Location?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Location</mat-label>
+    <input matInput [(ngModel)]="shout.location"  >
+  </mat-form-field>
+    
+  <p>Shout Text</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Write here !</mat-label>
+    <input matInput  [(ngModel)]="shout.text"  >
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="shout" cdkFocusInitial>Ok</button>
+</div>

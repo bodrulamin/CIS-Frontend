@@ -1,0 +1,42 @@
+<div class="loginHolder">
+
+    <mat-card class="ltrpad50">
+
+
+        <mat-card-title style="margin-bottom: 10px;">Login</mat-card-title>
+        <form>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput required>
+            </mat-form-field>
+
+            <mat-card-actions align="end">
+                <button color='primary' mat-raised-button>Login as Citizen</button>
+                <button color='warn' mat-raised-button>Login as Service Provider</button>
+            </mat-card-actions>
+
+
+
+        </form>
+    </mat-card>
+   
+    <div class="space"></div>
+   <mat-card class="ltrpad50">
+ <form>
+        
+  
+        <mat-card-title>New Here?</mat-card-title>
+
+        <mat-card-content>If you are new here feel free to sign up !</mat-card-content>
+        <mat-card-actions align='end'>
+            <a routerLink="/home/signup" color='primary' mat-button>Sign up as Citizen</a>
+            <button color='warn' mat-button>Sign up as Service Provider</button>
+        </mat-card-actions>
+   </form>    </mat-card>
+
+</div>

@@ -1,0 +1,44 @@
+mat-sidenav-container{
+    height: 100%;
+ 
+   
+}
+
+
+mat-sidenav, mat-sidenav-content {
+
+}
+
+mat-sidenav{
+  
+    width: 20%;
+}
+
+.contents{
+    background: url'(assets/citizen.jpg)';
+   
+}
+.scale15 {
+    transform: scale(1.5);
+ }
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  #fab-shout{
+
+    bottom: 15px;
+    position: fixed !important;
+    right: 15px; /* Add this and change value to set the margin you want */
+
+  }
+  
+
+ 
+  #shout-toggle{
+
+    bottom: 15px;
+    position: fixed !important;
+ 
+  }
+  
