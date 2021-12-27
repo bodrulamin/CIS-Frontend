@@ -34,8 +34,8 @@
 
         <mat-card-content>If you are new here feel free to sign up !</mat-card-content>
         <mat-card-actions align='end'>
-            <a routerLink="/home/signup" color='primary' mat-button>Sign up as Citizen</a>
-            <button color='warn' mat-button>Sign up as Service Provider</button>
+            <a [routerLink]="['/signup']" [queryParams] ="{ut:'citizen'}"  color='primary' mat-button>Sign up as Citizen</a>
+            <a routerLink="/signup" [queryParams] = "{ut:'provider'}"   color='warn' mat-button>Sign up as Service Provider</a>
         </mat-card-actions>
    </form>    </mat-card>
 
