@@ -33,6 +33,18 @@ mat-sidenav{
 
   }
   
+mat-toolbar{
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0; /* required */
+}
+  .homechild{
+    margin: auto;
+    background-color: antiquewhite;
+    height: 100vh;
+  overflow:auto
+  }
+  
 
  
   #shout-toggle{

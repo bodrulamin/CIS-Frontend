@@ -18,21 +18,20 @@ export class CategoryService {
   
 
 
-    header = { "Content-Type": "application/json" }
 
 
   addCategory(c:Category){
-   return this.http.post<any>(this.config.categoryAddApi, JSON.stringify(c), { headers: this.header })
+   return this.http.post<any>(this.config.categoryAddApi, JSON.stringify(c), { headers: this.config.header })
   }
 
 
   getAll():Observable<any>{
-   return this.http.get(this.config.categoryGetAllApi, { headers: this.header })
+   return this.http.get(this.config.categoryGetAllApi, { headers: this.config.header })
   }
 
 
   deleteCategory(c:Category){
-   return this.http.post<any>(this.config.categoryDeleteApi, JSON.stringify(c), { headers: this.header })
+   return this.http.post<any>(this.config.categoryDeleteApi, JSON.stringify(c), { headers: this.config.header })
   }
 
 

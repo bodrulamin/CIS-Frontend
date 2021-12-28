@@ -7,12 +7,18 @@
         <form [formGroup]="form">
             <mat-form-field>
                 <mat-label>Username</mat-label>
-                <input matInput required>
+                <input formControlName="username" matInput required>
+                <mat-error *ngIf="isError('username')">
+                    You must provide a valid <strong>username</strong>
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field>
                 <mat-label>Password</mat-label>
-                <input matInput required>
+                <input formControlName="password" matInput required>
+                <mat-error *ngIf="isError('password')">
+                    You must provide a valid <strong>password</strong>
+                </mat-error>
             </mat-form-field>
 
             <mat-card-actions align="end">
