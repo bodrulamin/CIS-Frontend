@@ -4,6 +4,8 @@
    <button routerLink = "/" >Goto home</button>
 
 
-   <input ([ngModel]) = 'c.name' matInput type="text"  >
+   <input [(ngModel)]= 'c.name' matInput name= 'name' type="text"  >
+
+   <button (click) = 'addCategory()'>Save</button>
 
 </mat-card>

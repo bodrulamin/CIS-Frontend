@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Category } from '../add-category/category.model';
 import { ShoutPopupComponent } from '../shout-popup/shout-popup.component';
 import { Shout } from '../shout-popup/shout.model';
   export interface DialogData {
@@ -14,10 +16,15 @@ import { Shout } from '../shout-popup/shout.model';
 export class HomeComponent implements OnInit {
 
   shout = new Shout()
-  shouts: Shout[] = []
-  constructor(public dialog: MatDialog) { }
+  categories: any
+  constructor(public dialog: MatDialog,private http:HttpClient) { }
 
   ngOnInit(): void {
+this.http.get<any>("http://localhost:8080/getAllCategories").subscribe(res=>{
+  console.log(res);
+  
+  this.categories = res.data.category
+})
   }
 
   openDialog(): void {
@@ -46,7 +53,7 @@ addShout(shout: Shout) {
   s.location = shout.location
   s.text = shout.text
 
-  this.shouts.push(s)
+   
 }
 
 

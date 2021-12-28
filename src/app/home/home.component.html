@@ -9,16 +9,11 @@
 
         <mat-list>
 
-            <mat-card style="margin-top:10px;" *ngFor="let s of shouts">
+            <mat-card style="margin-top:10px;" *ngFor="let c of categories">
                 <div class="div">
-                    {{s.name}}
+                    {{c.name}}
                 </div>
-                <div class="div">
-                    {{s.location}}
-                </div>
-                <div class="div">
-                    {{s.text}}
-                </div>
+               
 
             </mat-card>
         </mat-list>
