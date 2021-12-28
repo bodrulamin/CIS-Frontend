@@ -4,7 +4,7 @@
 
 
         <mat-card-title style="margin-bottom: 10px;">Login</mat-card-title>
-        <form>
+        <form [formGroup]="form">
             <mat-form-field>
                 <mat-label>Username</mat-label>
                 <input matInput required>
@@ -16,8 +16,8 @@
             </mat-form-field>
 
             <mat-card-actions align="end">
-                <button color='primary' mat-raised-button>Login as Citizen</button>
-                <button color='warn' mat-raised-button>Login as Service Provider</button>
+                <button (click) = "login('citizen')"  color='primary' mat-raised-button>Login as Citizen</button>
+                <button  (click) = "login('provider')"  color='warn' mat-raised-button>Login as Service Provider</button>
             </mat-card-actions>
 
 

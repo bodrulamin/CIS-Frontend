@@ -2,6 +2,7 @@ import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from './user.model';
 
 @Component({
@@ -26,6 +27,7 @@ export class SignupComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private rout: Router,
+    private toast: ToastrService
 
   ) { }
 
@@ -47,17 +49,18 @@ export class SignupComponent implements OnInit {
 
     if (this.form.valid) {
       this.http.post<any>("http://localhost:8080/signup", JSON.stringify(this.user), { headers: header }).subscribe(res => {
-        console.log(res);
+      
         if(res.status == 'success'){
+          this.toast.success("Login successfull")
           this.rout.navigateByUrl("/")
         }else{
-            
+            this.toast.error("Login failed !")
         }
 
       })
     }
     else {
-      console.log("form invalid");
+     this.toast.error("Form is invalid !")
 
     }
 
