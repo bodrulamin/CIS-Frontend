@@ -51,10 +51,10 @@ export class SignupComponent implements OnInit {
       this.http.post<any>("http://localhost:8080/signup", JSON.stringify(this.user), { headers: header }).subscribe(res => {
       
         if(res.status == 'success'){
-          this.toast.success("Login successfull")
-          this.rout.navigateByUrl("/")
+          this.toast.success("Signup successfull")
+          this.rout.navigateByUrl("/login")
         }else{
-            this.toast.error("Login failed !")
+            this.toast.error("Signup failed !")
         }
 
       })

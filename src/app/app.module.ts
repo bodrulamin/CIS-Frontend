@@ -13,7 +13,7 @@ import { SignupComponent } from './home/signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
-import { Toast, ToastrModule } from 'ngx-toastr';
+import { ToastrModule} from 'ngx-toastr'
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
