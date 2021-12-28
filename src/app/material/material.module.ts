@@ -7,7 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog'; 
 import {MatInputModule} from '@angular/material/input'; 
 import {MatListModule} from '@angular/material/list'; 
-
+import {MatMenuModule} from '@angular/material/menu'; 
 
 const MaterialComponents = [
   MatSidenavModule,
@@ -16,9 +16,8 @@ MatIconModule,
 MatButtonModule,
 MatCardModule,
 MatDialogModule,
-
+MatMenuModule,
 MatInputModule,
-
 MatListModule,
 
 ]

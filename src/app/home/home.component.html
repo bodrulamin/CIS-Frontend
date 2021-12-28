@@ -3,20 +3,37 @@
 
         <mat-card (click)='drawer.toggle()'>
             <div style="text-align: center;" class="mat-headline">
-                <mat-icon>emoji_people</mat-icon><span style="padding-left: 5px;">Shout</span>
+                <mat-icon>emoji_people</mat-icon><span style="padding-left: 5px;">Shout Categories</span>
             </div>
         </mat-card>
 
-        <mat-list>
 
-            <mat-card style="margin-top:10px;" *ngFor="let c of categories">
-                <div class="div">
-                    {{c.name}}
-                </div>
-               
+        <mat-nav-list>
+            <mat-list-item *ngFor="let c of categories">
+               <a style="background-color: aquamarine;" matLine href="...">  {{c.name}} </a>
+               <button mat-icon-button [matMenuTriggerFor]="menu"  >
+                  <mat-icon >more_vert</mat-icon>
+               </button>
 
-            </mat-card>
-        </mat-list>
+               <mat-menu #menu="matMenu">
+                <button (click)= 'edit(c)' mat-menu-item>
+                  <mat-icon>edit</mat-icon>
+                  <span>Edit</span>
+                </button>
+                <button  (click)= 'delete(c)'  mat-menu-item>
+                  <mat-icon>delete</mat-icon>
+                  <span>Delete</span>
+                </button>
+                <button  (click)= 'unsubscribeTo(c)'  mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Unsubscribe</span>
+                </button>
+              </mat-menu>
+
+
+            </mat-list-item>
+          </mat-nav-list>
+          
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -36,7 +53,7 @@
 
         <div class="contents">
 
-            <button routerLink = '/addcat'>Add category</button>
+            <button routerLink='/addcat'>Add category</button>
             <router-outlet></router-outlet>
             <button mat-fab style="width: 80px; height: 80px;" (click)="openDialog()" mat-raised-button color="accent"
                 class="md-fab-bottom-right" id="fab-shout" aria-label="Add a category">

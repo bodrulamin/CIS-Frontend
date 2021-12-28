@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '../services/category.service';
 import { Category } from './category.model';
 
 @Component({
@@ -13,7 +14,8 @@ export class AddCategoryComponent implements OnInit {
   c = new Category()
   constructor(
     private http: HttpClient,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private categoryService : CategoryService
   ) { }
 
   ngOnInit(): void {
@@ -22,10 +24,9 @@ export class AddCategoryComponent implements OnInit {
 
   addCategory() {
 
-    const header = { "Content-Type": "application/json" }
-    this.http.post<any>("http://localhost:8080/addcat", JSON.stringify(this.c), { headers: header }).subscribe(res => {
+    this.categoryService.addCategory(this.c).subscribe(res => {
       console.log(res);
-      this.toast.success("Category added !");
+      this.toast.success(res.msg);
       this.c = new Category()
 
     })

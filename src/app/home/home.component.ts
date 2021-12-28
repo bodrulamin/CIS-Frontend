@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Category } from '../add-category/category.model';
+import { CategoryService } from '../services/category.service';
 import { ShoutPopupComponent } from '../shout-popup/shout-popup.component';
 import { Shout } from '../shout-popup/shout.model';
   export interface DialogData {
@@ -17,10 +18,15 @@ export class HomeComponent implements OnInit {
 
   shout = new Shout()
   categories: any
-  constructor(public dialog: MatDialog,private http:HttpClient) { }
+  constructor(
+    public dialog: MatDialog,
+    private http:HttpClient,
+    private categoryService: CategoryService
+    
+    ) { }
 
   ngOnInit(): void {
-this.http.get<any>("http://localhost:8080/getAllCategories").subscribe(res=>{
+this.categoryService.getAll().subscribe(res=>{
   console.log(res);
   
   this.categories = res.data.category
@@ -56,6 +62,23 @@ addShout(shout: Shout) {
    
 }
 
+loadShoutsOf(c:Category){
+  
+}
+
+edit(c:Category){
+
+}
+delete(c:Category){
+
+  this.categoryService.deleteCategory(c).subscribe(res=>{
+    console.log(res)
+    
+  })
+}
+unsubscribeTo(c:Category){
+
+}
 
 }
 

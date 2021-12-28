@@ -15,6 +15,8 @@ import { AboutComponent } from './about/about.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { ToastrModule} from 'ngx-toastr'
 import { HttpClientModule } from '@angular/common/http';
+import { UserService } from './services/user.service';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    UserService,
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

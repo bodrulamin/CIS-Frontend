@@ -11,20 +11,13 @@ import { SignupComponent } from './home/signup/signup.component';
 const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
-  { path: 'addcat', component: AddCategoryComponent },
-  {
-    path: 'signup', component: SignupComponent, children: [
-      { path: '**', component: SignupComponent }
-    ]
-
-  },
-
-
+  { path: 'signup', component: SignupComponent },
   {
     path: '', component: HomeComponent, children: [
-      {path:'dash', component: DashboardComponent },
-      {path:'about', component: AboutComponent },
-
+      { path: '', component: DashboardComponent },
+      { path: 'dash', component: DashboardComponent },
+      { path: 'addcat', component: AddCategoryComponent },
+      { path: 'about', component: AboutComponent },
     ]
   },
 
