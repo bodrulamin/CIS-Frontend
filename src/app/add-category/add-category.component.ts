@@ -31,5 +31,10 @@ export class AddCategoryComponent implements OnInit {
 
     })
   }
+  
+
+  isError(con:string){
+return false
+  }
 
 }

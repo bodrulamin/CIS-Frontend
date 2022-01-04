@@ -8,7 +8,14 @@
    <button routerLink = "/" >Goto home</button>
 
 
-   <input [(ngModel)]= 'c.name' matInput name= 'name' type="text"  >
+   <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input formControlName="category" [(ngModel)]= 'c.name' matInput required>
+      <mat-error *ngIf="isError('category')">
+          You must provide a category <strong>Category</strong>
+      </mat-error>
+  </mat-form-field>
+   <input mat-input [(ngModel)]= 'c.name' matInput name= 'name' type="text"  >
 
    <button (click) = 'addCategory()'>Save</button>
 

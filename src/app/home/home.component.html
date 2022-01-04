@@ -10,7 +10,7 @@
 
         <mat-nav-list>
             <mat-list-item *ngFor="let c of categories">
-               <a style="background-color: aquamarine;" matLine href="...">  {{c.name}} </a>
+               <a  matLine href="...">  {{c.name}} </a>
                <button mat-icon-button [matMenuTriggerFor]="menu"  >
                   <mat-icon >more_vert</mat-icon>
                </button>
@@ -43,6 +43,11 @@
             <span [routerLink]="['/']" routerLinkActive="router-link-active" style="padding: 10px;">Citizen Issue
                 Solver</span>
             <span class="example-spacer"></span>
+
+            <a routerLink='/addcat' mat-button>
+                <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">man
+                </mat-icon><span>Add Category</span>
+            </a>
             <a routerLink='/login' mat-button>
                 <mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">man
                 </mat-icon><span>Login</span>
@@ -53,7 +58,7 @@
 
         <div class="contents">
 
-            <button routerLink='/addcat'>Add category</button>
+      
 
             <div class="homechild">
                <router-outlet></router-outlet>  
