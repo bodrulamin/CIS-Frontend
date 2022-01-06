@@ -27,9 +27,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/jqvmap/dist/jqvmap.min.css",
+              "src/assets/weathericons/css/weather-icons.min.css",
+              "src/assets/weathericons/css/weather-icons-wind.min.css",
+              "src/assets/summernote/summernote-bs4.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/simpleweather/jquery.simpleWeather.min.js",
+              "src/assets/chart.js/dist/Chart.min.js",
+              "src/assets/jqvmap/dist/jquery.vmap.min.js",
+              "src/assets/jqvmap/dist/maps/jquery.vmap.world.js",
+              "src/assets/summernote/summernote-bs4.js",
+              "src/assets/chocolat/js/jquery.chocolat.min.js"
+
+
+            ]
           },
           "configurations": {
             "production": {
