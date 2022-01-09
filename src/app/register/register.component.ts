@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -9,11 +11,49 @@ import { ActivatedRoute } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   userType = 'citizen'
-  constructor(private activatedRout: ActivatedRoute) { }
+
+  fg = new FormGroup({
+    fullname: new FormControl(""),
+    
+    username: new FormControl(""),
+    password: new FormControl(""),
+    password2: new FormControl(""),
+    email: new FormControl(""),
+    address: new FormControl(""),
+    usertype: new FormControl(""),
+  })
+
+
+
+  constructor(
+    private activatedRout: ActivatedRoute,
+    private rout: Router,
+    private userService: UserService,
+    ) { }
 
   ngOnInit(): void {
-    this.activatedRout.queryParams.subscribe(params => {
+    this.setUserType();
 
+
+  }
+  register(){
+    this.fg.get('usertype')?.setValue(this.userType)
+
+    this.userService.signup(this.fg).subscribe(res=>{
+      console.log(res);
+      if(res.status == 'success'){
+
+        this.rout.navigate(['/'])
+      }
+      else{
+        
+      }
+    })
+
+  }
+
+  setUserType() {
+    this.activatedRout.queryParams.subscribe(params => {
       switch (params['userType']) {
         case 'citizen':
         case 'provider': this.userType = params['userType']
@@ -22,5 +62,4 @@ export class RegisterComponent implements OnInit {
 
     })
   }
-
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { AddShoutComponent } from './components/add-shout/add-shout.component';
 import { BlankComponent } from './components/blank/blank.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ShoutsComponent } from './components/shouts/shouts.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path:'', component:DashboardComponent},
     {path:'blank.html', component:BlankComponent},
     {path:'addcategory', component:AddCategoryComponent},
+    {path:'addshout', component:AddShoutComponent},
     {path:'shouts', component:ShoutsComponent},
 
   ]},

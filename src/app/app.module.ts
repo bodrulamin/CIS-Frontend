@@ -12,6 +12,13 @@ import { BlankComponent } from './components/blank/blank.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { ShoutsComponent } from './components/shouts/shouts.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AddShoutComponent } from './components/add-shout/add-shout.component';
+import { UserService } from './services/user.service';
+import { ConfigService } from './services/config.service';
+import { ShoutService } from './services/shout.service';
+import { CategoryService } from './services/category.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +31,24 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     BlankComponent,
     AddCategoryComponent,
     ShoutsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddShoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+
   ],
-  providers: [],
+  providers: [
+    UserService,
+    ConfigService,
+    ShoutService,
+    CategoryService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

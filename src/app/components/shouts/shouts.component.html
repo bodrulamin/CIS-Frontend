@@ -6,13 +6,12 @@
 
         <div class="section-body">
 
-            <div *ngFor="let number of [0,1,2,3,4]" class="card card-primary">
+            <div *ngFor="let s of shouts" class="card card-primary">
                 <div class="card-header">
-                    <h4 class="card-title">Card Title</h4>
+                    <h4 class="card-title">{{s.shoutTitle}}</h4>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                        card's content.</p>
+                    <p class="card-text">{{s.shoutmessage}}</p>
 
                     <div class="float-right">
                         <a href="#" class="card-link">Card link</a>

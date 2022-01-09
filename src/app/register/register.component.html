@@ -7,29 +7,27 @@
             <img src="../assets/img/stisla-fill.svg" alt="logo" width="100" class="shadow-light rounded-circle">
           </div>
 
-
-
           <div *ngIf="userType=='citizen'" class="card card-primary">
             <div class="card-header">
               <h4>Register as Citizen</h4>
             </div>
 
             <div class="card-body">
-              <form>
+              <form [formGroup]="fg" (ngSubmit)="register()">
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="first_name">First Name</label>
-                    <input id="first_name" type="text" class="form-control" name="first_name" autofocus>
+                    <label for="fullname">Full Name</label>
+                    <input formControlName="fullname" id="fullname" type="text" class="form-control" name="fullname" autofocus>
                   </div>
                   <div class="form-group col-6">
-                    <label for="last_name">Last Name</label>
-                    <input id="last_name" type="text" class="form-control" name="last_name">
+                    <label for="last_name">Username</label>
+                    <input formControlName="username" id="username" type="text" class="form-control" name="username">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email">
+                  <input formControlName="email" id="email" type="email" class="form-control" name="email">
                   <div class="invalid-feedback">
                   </div>
                 </div>
@@ -37,7 +35,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="password" class="d-block">Password</label>
-                    <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
+                    <input formControlName="password" id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
                       name="password">
                     <div id="pwindicator" class="pwindicator">
                       <div class="bar"></div>
@@ -46,39 +44,17 @@
                   </div>
                   <div class="form-group col-6">
                     <label for="password2" class="d-block">Password Confirmation</label>
-                    <input id="password2" type="password" class="form-control" name="password-confirm">
+                    <input formControlName="password2" id="password2" type="password" class="form-control" name="password-confirm">
                   </div>
                 </div>
 
-                <div class="form-divider">
-                  Your Home
-                </div>
-                <div class="row">
-                  <div class="form-group col-6">
-                    <label>Country</label>
-                    <select class="form-control selectric">
-                      <option>Bangladesh</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Province</label>
-                    <select class="form-control selectric">
-                      <option>Dhaka</option>
-                      <option>Jhenaidah</option>
-                      <option>Khulna</option>
-                    </select>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input formControlName="address" id="address" type="text" class="form-control" name="address">
+                  <div class="invalid-feedback">
                   </div>
                 </div>
-                <div class="row">
-                  <div class="form-group col-6">
-                    <label>City</label>
-                    <input type="text" class="form-control">
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Postal Code</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
+
 
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
@@ -105,23 +81,24 @@
             <div class="card-header">
               <h4>Register as Service Provider</h4>
             </div>
+            
 
             <div class="card-body">
-              <form method="POST">
+              <form [formGroup]="fg">
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="providername">Provider Name</label>
-                    <input id="providername" type="text" class="form-control" name="providername" autofocus>
+                    <label for="fullname">Service Provider Name</label>
+                    <input formControlName="fullname" id="fullname" type="text" class="form-control" name="fullname" autofocus>
                   </div>
                   <div class="form-group col-6">
-                    <label for="phone">Phone</label>
-                    <input id="phone" type="text" class="form-control" name="phone">
+                    <label for="last_name">Username</label>
+                    <input formControlName="username" id="username" type="text" class="form-control" name="username">
                   </div>
                 </div>
 
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email">
+                  <input formControlName="email" id="email" type="email" class="form-control" name="email">
                   <div class="invalid-feedback">
                   </div>
                 </div>
@@ -129,7 +106,7 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="password" class="d-block">Password</label>
-                    <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
+                    <input formControlName="password" id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator"
                       name="password">
                     <div id="pwindicator" class="pwindicator">
                       <div class="bar"></div>
@@ -138,42 +115,17 @@
                   </div>
                   <div class="form-group col-6">
                     <label for="password2" class="d-block">Password Confirmation</label>
-                    <input id="password2" type="password" class="form-control" name="password-confirm">
+                    <input formControlName="password2" id="password2" type="password" class="form-control" name="password-confirm">
                   </div>
                 </div>
 
-                <div class="form-divider">
-                  Your Home
-                </div>
-                <div class="row">
-                  <div class="form-group col-6">
-                    <label>Country</label>
-                    <select class="form-control selectric">
-                      <option>Indonesia</option>
-                      <option>Palestine</option>
-                      <option>Syria</option>
-                      <option>Malaysia</option>
-                      <option>Thailand</option>
-                    </select>
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Province</label>
-                    <select class="form-control selectric">
-                      <option>West Java</option>
-                      <option>East Java</option>
-                    </select>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input formControlName="address" id="address" type="text" class="form-control" name="address">
+                  <div class="invalid-feedback">
                   </div>
                 </div>
-                <div class="row">
-                  <div class="form-group col-6">
-                    <label>City</label>
-                    <input type="text" class="form-control">
-                  </div>
-                  <div class="form-group col-6">
-                    <label>Postal Code</label>
-                    <input type="text" class="form-control">
-                  </div>
-                </div>
+
 
                 <div class="form-group">
                   <div class="custom-control custom-checkbox">
@@ -190,17 +142,17 @@
               </form>
             </div>
 
-
-
-
-
           </div>
+
+
+
+
 
           <div class="mt-5 text-muted text-center">
             Already have an account?
             <div class="div">
-              <a class="btn btn-outline-primary" [routerLink]="['/login']" ><i class="fas fa-info-circle"></i>Login</a>
-                         </div>
+              <a class="btn btn-outline-primary" [routerLink]="['/login']"><i class="fas fa-info-circle"></i>Login</a>
+            </div>
 
           </div>
 

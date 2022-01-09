@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoutService } from 'src/app/services/shout.service';
 
 @Component({
   selector: 'app-shouts',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoutsComponent implements OnInit {
 
-  constructor() { }
+
+  shouts: any
+  constructor(
+    private shoutService: ShoutService,
+
+  ) { }
 
   ngOnInit(): void {
+  
+    this.shoutService.getAll().subscribe(res=>{
+      console.log(res);
+      this.shouts = res.data.shout
+      
+    })
   }
 
 }

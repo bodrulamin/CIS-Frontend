@@ -16,7 +16,12 @@ export class ConfigService {
   categoryUpdateApi = this.host + '/category/update'
   categoryDeleteApi = this.host + '/category/delete'
   categoryGetAllApi = this.host + '/category/getAll'
+  categoryGetOneApi = this.host + '/category/getOne/'
 
-
+  shoutAddApi = this.host + '/shout/add'
+  shoutUpdateApi = this.host + '/shout/update'
+  shoutDeleteApi = this.host + '/shout/delete'
+  shoutGetAllApi = this.host + '/shout/getAll'
+  shoutGetOneApi = this.host + '/shout/getOne/'
   constructor() { }
 }
