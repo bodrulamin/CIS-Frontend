@@ -16,14 +16,9 @@ export class RegisterComponent implements OnInit {
 
       switch (params['userType']) {
         case 'citizen':
-        case 'provider': this.userType = params['userType']          
-          break;
-      
-        default:
+        case 'provider': this.userType = params['userType']
           break;
       }
-
-    
 
     })
   }
