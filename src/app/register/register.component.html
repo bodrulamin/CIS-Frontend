@@ -110,12 +110,12 @@
               <form method="POST">
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="first_name">First Name</label>
-                    <input id="first_name" type="text" class="form-control" name="first_name" autofocus>
+                    <label for="providername">Provider Name</label>
+                    <input id="providername" type="text" class="form-control" name="providername" autofocus>
                   </div>
                   <div class="form-group col-6">
-                    <label for="last_name">Last Name</label>
-                    <input id="last_name" type="text" class="form-control" name="last_name">
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="text" class="form-control" name="phone">
                   </div>
                 </div>
 
@@ -196,8 +196,18 @@
 
           </div>
 
+          <div class="mt-5 text-muted text-center">
+            Already have an account?
+            <div class="div">
+              <a class="btn btn-outline-primary" [routerLink]="['/login']" ><i class="fas fa-info-circle"></i>Login</a>
+                         </div>
+
+          </div>
+
+
+
           <div class="simple-footer">
-            Copyright &copy; Stisla 2018
+            Copyright &copy; Citizen Issue Solver 2022
           </div>
         </div>
       </div>
