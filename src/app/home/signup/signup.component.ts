@@ -73,6 +73,9 @@ export class SignupComponent implements OnInit {
   }
 
   isError(contoller: string) {
+
+    this.rout.navigate(['/'],)
+
     let c = this.form.get(contoller)
     if (c?.touched && c.invalid) {
       return true
@@ -87,9 +90,11 @@ export class SignupComponent implements OnInit {
 
       let ut = params['ut'];
 
+    
+
+
       if (ut == 'citizen') {
         this.userType = 'Citizen';
-        
 
       } else if (ut == 'provider') {
         this.userType = 'Provider';
