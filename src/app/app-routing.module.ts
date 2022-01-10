@@ -4,6 +4,7 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { AddShoutComponent } from './components/add-shout/add-shout.component';
 import { BlankComponent } from './components/blank/blank.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { IndexComponent } from './components/index/index.component';
 import { ShoutsComponent } from './components/shouts/shouts.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,8 @@ const routes: Routes = [
 
   ]},
 
+  {path:'cis',component:IndexComponent},
+  
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
 ];

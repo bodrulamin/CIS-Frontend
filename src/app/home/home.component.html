@@ -1,21 +1,22 @@
 <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-<app-navbar></app-navbar> 
+  <div class="main-wrapper">
+    <div class="navbar-bg"></div>
+    <app-navbar></app-navbar>
 
-     <app-mainsidebar></app-mainsidebar>
+    <app-mainsidebar *ngIf="false"></app-mainsidebar>
+    <app-category-sidebar></app-category-sidebar>
 
-      <!-- Main Content -->
-<router-outlet></router-outlet>
+    <!-- Main Content -->
+    <router-outlet></router-outlet>
 
 
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
-        </div>
-        <div class="footer-right">
-          2.3.0
-        </div>
-      </footer>
-    </div>
+    <footer class="main-footer">
+      <div class="footer-left">
+        Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+      </div>
+      <div class="footer-right">
+        2.3.0
+      </div>
+    </footer>
   </div>
+</div>

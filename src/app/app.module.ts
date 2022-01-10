@@ -19,6 +19,8 @@ import { UserService } from './services/user.service';
 import { ConfigService } from './services/config.service';
 import { ShoutService } from './services/shout.service';
 import { CategoryService } from './services/category.service';
+import { IndexComponent } from './components/index/index.component';
+import { CategorySidebarComponent } from './components/category-sidebar/category-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { CategoryService } from './services/category.service';
     AddCategoryComponent,
     ShoutsComponent,
     NavbarComponent,
-    AddShoutComponent
+    AddShoutComponent,
+    IndexComponent,
+    CategorySidebarComponent
   ],
   imports: [
     BrowserModule,
