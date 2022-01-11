@@ -5,6 +5,19 @@
       </div>
 
       <div class="section-body">
+
+
+        <form [formGroup]="formGroup" (ngSubmit)="login()">
+        <input formControlName="fullname" name="fullname" type="text" id="fullname"/>
+      
+        <input formControlName="username" name="username" type="text" id="username"/>
+
+      
+        <button type="submit">Login</button>
+
+        </form>
+
+
       </div>
     </section>
   </div>
