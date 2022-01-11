@@ -13,7 +13,8 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
 
   {path: '', component: HomeComponent,children:[
-    {path:'', component:DashboardComponent},
+    {path:'', component:ShoutsComponent},
+    {path:'dashboard', component:DashboardComponent},
     {path:'blank.html', component:BlankComponent},
     {path:'addcategory', component:AddCategoryComponent},
     {path:'addshout', component:AddShoutComponent},

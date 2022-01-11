@@ -1,19 +1,18 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Citizen Issue Solver</a>
+            <a routerLink="/">Citizen Issue Solver</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">CIS</a>
+            <a routerLink="/">CIS</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Categories</li>
     
-            <li><a class="nav-link" routerLink="/blank.html"><i class="far fa-square"></i>
-                    <span>Blank Page</span></a>
+            <li *ngFor="let cat of categories"><a class="nav-link" routerLink="/shouts"><i class="far fa-star"></i>
+                    <span>{{cat.name}}</span></a>
             </li>
 
-           
 
         </ul>
 
