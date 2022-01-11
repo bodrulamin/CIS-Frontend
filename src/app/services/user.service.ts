@@ -30,9 +30,24 @@ export class UserService {
 
     let lu = localStorage.getItem('user')
     if (lu != null) {
-      this.userString = localStorage.getItem('user')
+      this.userString = JSON.parse(lu)
     }
     return this.userString;
+  }
+
+  clearLogin(){
+    localStorage.removeItem('user');
+  }
+
+  isLoggedIn(){
+    console.log(this.getUserFromLocalStorate());
+    
+    if(this.getUserFromLocalStorate() == undefined){
+      return false;
+    }else {
+      return true;
+    }
+
   }
 
 }

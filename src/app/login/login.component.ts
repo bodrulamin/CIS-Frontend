@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
     
       if(res.status == 'success'){
-
-        this.userService.saveUserToLocalStorage(res.data)
+        this.userService.saveUserToLocalStorage(JSON.stringify(res.data))
         this.rout.navigate(['/'])
       }
       else{
