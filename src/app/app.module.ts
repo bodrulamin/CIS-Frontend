@@ -21,6 +21,7 @@ import { ShoutService } from './services/shout.service';
 import { CategoryService } from './services/category.service';
 import { IndexComponent } from './components/index/index.component';
 import { CategorySidebarComponent } from './components/category-sidebar/category-sidebar.component';
+import { ProviderSidebarComponent } from './components/provider-sidebar/provider-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CategorySidebarComponent } from './components/category-sidebar/category
     NavbarComponent,
     AddShoutComponent,
     IndexComponent,
-    CategorySidebarComponent
+    CategorySidebarComponent,
+    ProviderSidebarComponent
   ],
   imports: [
     BrowserModule,

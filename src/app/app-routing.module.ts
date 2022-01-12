@@ -12,20 +12,21 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 
-  {path: '', component: HomeComponent,children:[
-    {path:'', component:ShoutsComponent},
-    {path:'dashboard', component:DashboardComponent},
-    {path:'blank.html', component:BlankComponent},
-    {path:'addcategory', component:AddCategoryComponent},
-    {path:'addshout', component:AddShoutComponent},
-    {path:'shouts', component:ShoutsComponent},
+  {
+    path: '', component: HomeComponent, children: [
+      { path: '', component: ShoutsComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'blank.html', component: BlankComponent },
+      { path: 'addcategory', component: AddCategoryComponent },
+      { path: 'addshout', component: AddShoutComponent },
+      { path: 'shouts', component: ShoutsComponent },
+    ]
+  },
 
-  ]},
+  { path: 'cis', component: IndexComponent },
 
-  {path:'cis',component:IndexComponent},
-  
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

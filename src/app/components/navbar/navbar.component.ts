@@ -9,17 +9,27 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
+fullname = ''
   constructor(
-    private userService: UserService,
-    private rout: Router,
+    public userService: UserService,
+    public rout: Router,
   ) { }
 
   ngOnInit(): void {
+    this.fullname = this.userService.getUserFromLocalStorate().fullname
   }
 
   logout(){
     this.userService.clearLogin()
     this.rout.navigateByUrl('/login')
 
+  }
+  
+  profileBtnClicked(){
+    if(!this.userService.isLoggedIn()){
+    this.rout.navigateByUrl("/login")
+
+    }
+    
   }
 }

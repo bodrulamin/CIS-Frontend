@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
       console.log(res);
       if(res.status == 'success'){
 
+        this.userService.saveUserToLocalStorage(JSON.stringify(res.data))
         this.rout.navigate(['/'])
       }
       else{

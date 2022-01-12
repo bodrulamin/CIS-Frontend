@@ -29,25 +29,50 @@ export class UserService {
   getUserFromLocalStorate() {
 
     let lu = localStorage.getItem('user')
+
+
     if (lu != null) {
-      this.userString = JSON.parse(lu)
+      try {
+        this.userString = JSON.parse(lu)
+        return this.userString.user;
+      } catch (e) {
+        console.log(" errror " + e);
+
+      }
+
     }
-    return this.userString;
+    return ""
   }
 
-  clearLogin(){
+  clearLogin() {
     localStorage.removeItem('user');
   }
 
-  isLoggedIn(){
-    console.log(this.getUserFromLocalStorate());
-    
-    if(this.getUserFromLocalStorate() == undefined){
+  isLoggedIn() {
+
+    if (this.getUserFromLocalStorate() == undefined) {
       return false;
-    }else {
+    } else {
       return true;
     }
 
   }
+
+  isProvider() {
+
+    if (this.isLoggedIn() && this.getUserFromLocalStorate().usertype == 'provider') {
+      return true;
+    }
+    return false;
+  }
+
+  isCitizen() {
+    if (this.isLoggedIn() && this.getUserFromLocalStorate().usertype == 'citizen') {
+      return true;
+    }
+    return false;
+
+  }
+
 
 }

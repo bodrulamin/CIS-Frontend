@@ -3,9 +3,10 @@
     <div class="navbar-bg"></div>
     <app-navbar></app-navbar>
 
-    <app-mainsidebar *ngIf="false"></app-mainsidebar>
-    <app-category-sidebar></app-category-sidebar>
 
+    <app-category-sidebar *ngIf="!userService.isLoggedIn()"></app-category-sidebar>
+    <app-mainsidebar *ngIf="userService.isCitizen()"></app-mainsidebar>
+    <app-provider-sidebar *ngIf="userService.isProvider()"></app-provider-sidebar>
     <!-- Main Content -->
     <router-outlet></router-outlet>
 
