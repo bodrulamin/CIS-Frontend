@@ -12,4 +12,5 @@ export class Shout {
     address = ''
     status = ShoutStatus.pending;
     isReadmore = true;
+    date= new Date()
 }
