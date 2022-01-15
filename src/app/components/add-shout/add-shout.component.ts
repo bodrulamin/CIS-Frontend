@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from 'src/app/services/category.service';
 import { ShoutService } from 'src/app/services/shout.service';
+import { UserService } from 'src/app/services/user.service';
 import { Shout } from '../shouts/shout.model';
 
 @Component({
@@ -10,18 +13,35 @@ import { Shout } from '../shouts/shout.model';
 export class AddShoutComponent implements OnInit {
 
   shout = new Shout()
-   constructor(
+  categories : any
+  constructor(
     private shoutService: ShoutService,
-
+    private categoryService: CategoryService,
+    private rout: Router,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
+
+   this.categoryService.getAll().subscribe(res=>{
+     console.log(res);
+     
+      this.categories = res.data.category
+    })
+
+    let gotShout = history.state.shout
+    if(gotShout){
+      this.shout = gotShout;
+    }
   }
 
-  postShout(){
-    this.shoutService.addShout(this.shout).subscribe(res=>{
+  postShout() {
+    this.shout.shouterId = this.userService.getUserFromLocalStorate().id
+   
+    
+    this.shoutService.addShout(this.shout).subscribe(res => {
       console.log(res);
-      
+
     })
   }
 

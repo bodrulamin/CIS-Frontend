@@ -24,12 +24,14 @@ export class ShoutService {
   getAll():Observable<any>{
    return this.http.get(this.config.shoutGetAllApi, { headers: this.config.header })
   }
-
+  getAllOf(shouterId:string):Observable<any>{
+    return this.http.get(this.config.shoutGetAllApi+"/"+shouterId, { headers: this.config.header })
+   }
   getOne(id:string):Observable<any>{
     return this.http.get(this.config.shoutGetOneApi+id, { headers: this.config.header })
    }
  
-  deleteCategory(c:Shout){
+  deleteShout(c:Shout){
    return this.http.post<any>(this.config.shoutDeleteApi, JSON.stringify(c), { headers: this.config.header })
   }
 

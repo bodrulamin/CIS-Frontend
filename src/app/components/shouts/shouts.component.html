@@ -6,34 +6,60 @@
 
         <div class="section-body">
 
-            <div *ngFor="let s of shouts" class="card card-primary">
-                <div class="card-header">
-                    <h4 class="card-title">{{s.shoutTitle}}</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">{{s.shoutmessage}}</p>
 
-                    <div *ngIf="userService.isCitizen()" class="float-right">
-                        <a href="#" class="card-link">Delete</a>
-                        <a href="#" class="card-link">Edit</a>
-                    </div>
-                    <div *ngIf="userService.isProvider()" class="float-right">
-                        <a href="#" class="card-link">Start Action</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+            <div class="row">
+                <div *ngFor="let s of shouts" class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <article class="article article-style-b">
+                        <div class="article-header">
+                            <div class="article-image" data-background="assets/images/accident.jpg"
+                                style="background-image: url(&quot;assets/images/accident.jpg&quot;);">
+                            </div>
+                            <div class="article-badge">
+                                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> Trending</div>
+                            </div>
+                        </div>
+                        <div class="article-details">
+                            <div class="article-title">
+                                <h2><a href="#">{{s.shoutTitle}}</a></h2>
+                            </div>
+
+
+                            <div>{{s.shoutmessage}}</div>
+                          
+
+                            <div class="article-cta">
+
+
+                                <div *ngIf="userService.isCitizen()">
+                                    <a (click)="delete(s)" class="btn btn-outline-danger mr-1">Delete</a>
+                                    <a (click)="edit(s)" class="btn btn-outline-info">Edit</a>
+                                </div>
+                                <div *ngIf="userService.isProvider()">
+                                    <a href="#" class="card-link">Start Action</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-           
+
+
+
+
+
+
+
         </div>
 
-            <div id="fixedbutton">
-                <button (click)="loginToShout()" class="btn btn-lg  btn-danger"><i class="far fa-edit"></i> Shout</button>
-                
-            </div>
+        <div id="fixedbutton">
+            <button (click)="loginToShout()" class="btn btn-lg  btn-danger"><i class="far fa-edit"></i> Shout</button>
+
+        </div>
 
 
 
     </section>
-  
+
 
 </div>

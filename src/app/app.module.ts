@@ -22,7 +22,10 @@ import { CategoryService } from './services/category.service';
 import { IndexComponent } from './components/index/index.component';
 import { CategorySidebarComponent } from './components/category-sidebar/category-sidebar.component';
 import { ProviderSidebarComponent } from './components/provider-sidebar/provider-sidebar.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +49,16 @@ import { ProviderSidebarComponent } from './components/provider-sidebar/provider
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      iconClasses:{
+        error:"",
+        info: "",
+        success:"",
+        warning: ""
+      }
+    }),
 
   ],
   providers: [

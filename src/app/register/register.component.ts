@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
     private activatedRout: ActivatedRoute,
     private rout: Router,
     private userService: UserService,
+    private toast:ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -42,12 +44,13 @@ export class RegisterComponent implements OnInit {
     this.userService.signup(this.fg).subscribe(res=>{
       console.log(res);
       if(res.status == 'success'){
-
+          this.toast.success(res.message,res.status)
         this.userService.saveUserToLocalStorage(JSON.stringify(res.data))
         this.rout.navigate(['/'])
       }
       else{
         
+          this.toast.error(res.message)
       }
     })
 

@@ -50,7 +50,10 @@ export class UserService {
 
   isLoggedIn() {
 
-    if (this.getUserFromLocalStorate() == undefined) {
+ let user=  this.getUserFromLocalStorate() 
+
+
+    if (user == undefined || user == "") {
       return false;
     } else {
       return true;
