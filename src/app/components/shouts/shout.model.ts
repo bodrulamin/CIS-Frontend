@@ -1,5 +1,5 @@
 export enum ShoutStatus {
-    pending, started, completed
+    draft = 'draft', started = 'started', completed = 'completed'
 }
 
 export class Shout {
@@ -10,7 +10,7 @@ export class Shout {
     shoutTitle = '';
     shoutmessage = '';
     address = ''
-    status = ShoutStatus.pending;
+    status = ShoutStatus.draft;
     isReadmore = true;
     date= new Date()
 }

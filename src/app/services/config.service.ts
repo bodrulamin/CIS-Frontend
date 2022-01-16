@@ -23,5 +23,7 @@ export class ConfigService {
   shoutDeleteApi = this.host + '/shout/delete'
   shoutGetAllApi = this.host + '/shout/getAll'
   shoutGetOneApi = this.host + '/shout/getOne/'
+  shoutUpdateStatusApi = this.host + '/shout/updatestatus'
+
   constructor() { }
 }

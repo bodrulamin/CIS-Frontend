@@ -51,14 +51,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      iconClasses:{
-        error:"",
-        info: "",
-        success:"",
-        warning: ""
-      }
-    }),
+    ToastrModule.forRoot(),
 
   ],
   providers: [

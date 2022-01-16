@@ -35,6 +35,9 @@ export class ShoutService {
    return this.http.post<any>(this.config.shoutDeleteApi, JSON.stringify(c), { headers: this.config.header })
   }
 
-
+  updateShoutStatus(c:Shout){
+    return this.http.post<any>(this.config.shoutUpdateStatusApi, JSON.stringify(c), { headers: this.config.header })
+   }
+ 
 
 }
