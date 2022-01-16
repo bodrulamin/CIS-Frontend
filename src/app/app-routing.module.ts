@@ -6,6 +6,7 @@ import { BlankComponent } from './components/blank/blank.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { IndexComponent } from './components/index/index.component';
 import { ShoutsComponent } from './components/shouts/shouts.component';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'addcategory', component: AddCategoryComponent },
       { path: 'addshout', component: AddShoutComponent },
       { path: 'shouts', component: ShoutsComponent },
+      { path: 'subscription', component: SubscriptionComponent },
     ]
   },
 

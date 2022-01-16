@@ -26,6 +26,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { SubscriptionComponent } from './components/subscription/subscription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { ToastrModule } from 'ngx-toastr';
     AddShoutComponent,
     IndexComponent,
     CategorySidebarComponent,
-    ProviderSidebarComponent
+    ProviderSidebarComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,

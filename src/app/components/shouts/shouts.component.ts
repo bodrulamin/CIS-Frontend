@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfigService } from 'src/app/services/config.service';
 import { ShoutService } from 'src/app/services/shout.service';
 import { UserService } from 'src/app/services/user.service';
 import { Shout, ShoutStatus } from './shout.model';
@@ -14,29 +15,74 @@ export class ShoutsComponent implements OnInit {
 
 
   localUser: any
-  shouts: any
+  shouts: Shout[] = []
   methodToGetShouts: any
   shoutStatus = ShoutStatus
+  allShouts: Shout[] = []
   constructor(
     private shoutService: ShoutService,
     private rout: Router,
     public userService: UserService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private config: ConfigService,
+    private activatedRout: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.methodToGetShouts = this.reloadAllShout
-    this.methodToGetShouts()
+    if (this.userService.isProvider()) {
+      this.methodToGetShouts = this.reloadAllShout
+      //this.methodToGetShouts = this.reloadShoutForProvider
+    } else if (this.userService.isCitizen()) {
+      this.methodToGetShouts = this.reloadShoutOfUser
+
+    } else {
+      this.methodToGetShouts = this.reloadAllShout
+    }
+
+   this.methodToGetShouts()
 
   }
+
+  filterStatus() {
+ 
+
+    this.activatedRout.queryParams.subscribe(params => {
+      let status = params['status']
+      console.log(status);
+
+      
+      if (status) {
+        this.shouts = this.allShouts.filter(s => s.status == status)
+        console.log("filterd");
+        
+
+      } else {
+        this.shouts = this.allShouts;
+        console.log('ese');
+        
+      }
+    })
+
+
+  }
+  reloadShoutForProvider() {
+    this.localUser = this.userService.getUserFromLocalStorate()
+
+   this.shoutService.getAllOfCurrentProvider(this.localUser.id).subscribe(res => {
+      console.log(res);
+      this.allShouts = res.data.shout
+     this.filterStatus()
+    })
+  }
+
   reloadShoutOfUser() {
 
     this.localUser = this.userService.getUserFromLocalStorate()
 
-    this.shoutService.getAllOf(this.localUser.id).subscribe(res => {
+    this.shoutService.getAllOfCurrentCitizen(this.localUser.id).subscribe(res => {
       console.log(res);
-      this.shouts = res.data.shout
-
+      this.allShouts = res.data.shout
+     this.filterStatus()
     })
   }
   reloadAllShout() {
@@ -45,8 +91,8 @@ export class ShoutsComponent implements OnInit {
 
     this.shoutService.getAll().subscribe(res => {
       console.log(res);
-      this.shouts = res.data.shout
-
+      this.allShouts = res.data.shout
+      this.filterStatus()
     })
   }
 
@@ -54,12 +100,14 @@ export class ShoutsComponent implements OnInit {
     if (this.userService.isLoggedIn()) {
       this.rout.navigate(['/addshout'])
     } else if (!this.userService.isLoggedIn()) {
+      this.toast.info("Please login to create a shout")
       this.rout.navigate(['/login'])
     }
   }
   delete(s: Shout) {
     this.shoutService.deleteShout(s).subscribe(res => {
       console.log(res);
+      this.config.showToast(res)
       this.methodToGetShouts()
     })
   }
@@ -112,7 +160,7 @@ export class ShoutsComponent implements OnInit {
 
       s.status = ShoutStatus.completed
       this.shoutService.updateShoutStatus(s).subscribe(res => {
-      this.toast.success("Issue Marked as completed successfully !")
+        this.toast.success("Issue Marked as completed successfully !")
 
       })
     } else if (s.status == this.shoutStatus.completed) {
@@ -125,23 +173,23 @@ export class ShoutsComponent implements OnInit {
 
   }
 
-  getStatusClass(s:Shout){
+  getStatusClass(s: Shout) {
     switch (s.status) {
       case ShoutStatus.started:
-       return "article-badge-item bg-info"
-       
+        return "article-badge-item bg-info"
+
 
       case ShoutStatus.completed:
-                  return "article-badge-item bg-success"  
+        return "article-badge-item bg-success"
 
 
       case ShoutStatus.draft:
-           return "article-badge-item bg-danger"  
- 
+        return "article-badge-item bg-danger"
+
       default:
         break;
     }
 
-return "article-badge-item bg-danger"
+    return "article-badge-item bg-danger"
   }
 }

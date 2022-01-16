@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,22 @@ export class ConfigService {
   shoutGetOneApi = this.host + '/shout/getOne/'
   shoutUpdateStatusApi = this.host + '/shout/updatestatus'
 
-  constructor() { }
+  constructor(private toast:ToastrService) { }
+
+  showToast(res: any) {
+    switch (res.status) {
+      case 'success':
+        this.toast.success(res.msg)
+
+        break;
+      case 'failed':
+        this.toast.error(res.msg)
+
+        break;
+
+      default:
+        break;
+    }
+  }
+  
 }
