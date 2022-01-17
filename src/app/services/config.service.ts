@@ -12,6 +12,12 @@ export class ConfigService {
   signupApi = this.host + '/signup'
   signinApi = this.host + '/signin'
 
+  userAddApi = this.host + '/user/add'
+  userUpdateApi = this.host + '/user/update'
+  userDeleteApi = this.host + '/user/delete'
+  userGetAllApi = this.host + '/user/getAll'
+  userGetOneApi = this.host + '/user/getOne/'
+
 
   categoryAddApi = this.host + '/category/add'
   categoryUpdateApi = this.host + '/category/update'

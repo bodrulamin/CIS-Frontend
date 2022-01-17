@@ -40,6 +40,7 @@ export class AddShoutComponent implements OnInit {
 
   postShout() {
     this.shout.shouterId = this.userService.getUserFromLocalStorate().id
+console.log("add-shout " + JSON.stringify(this.shout));
 
 
     this.shoutService.addShout(this.shout).subscribe(res => {

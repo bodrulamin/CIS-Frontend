@@ -13,4 +13,6 @@ export class Shout {
     status = ShoutStatus.draft;
     isReadmore = true;
     date= new Date()
+    categoryName: any
+    shouterName:any
 }

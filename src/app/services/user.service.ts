@@ -78,4 +78,12 @@ export class UserService {
   }
 
 
+
+ 
+  getOne(id:string):Observable<any>{
+    return this.http.get(this.config.userGetOneApi+id, { headers: this.config.header })
+   }
+ 
+ 
+
 }

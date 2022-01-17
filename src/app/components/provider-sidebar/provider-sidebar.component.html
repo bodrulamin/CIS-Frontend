@@ -18,8 +18,10 @@
                     <li><a [routerLink]="['/shouts']" class="nav-link">All Shouts</a></li>
                     <li><a [routerLink]="['/shouts']" [queryParams]="{status:'draft'}" class="nav-link">draft</a>
                     </li>
-                    <li><a  [routerLink]="['/shouts']" [queryParams]="{status:'started'}" class="nav-link">started</a></li>
-                    <li><a  [routerLink]="['/shouts']" [queryParams]="{status:'completed'}" class="nav-link">completed</a></li>
+                    <li><a [routerLink]="['/shouts']" [queryParams]="{status:'started'}" class="nav-link">started</a>
+                    </li>
+                    <li><a [routerLink]="['/shouts']" [queryParams]="{status:'completed'}"
+                            class="nav-link">completed</a></li>
                 </ul>
 
             </li>
@@ -28,10 +30,9 @@
                     <span>My Subscription</span></a>
             </li>
 
-            <li><a class="nav-link" routerLink="/addcategory"> <i class="fas fa-list"></i>
+            <li *ngIf="false"><a class="nav-link" routerLink="/addcategory"> <i class="fas fa-list"></i>
                     <span>Add Category</span></a>
             </li>
-
 
             <li><a class="nav-link" routerLink="/addcategory"><i class="far fa-user-circle"></i>
                     <span>My Profile</span></a>

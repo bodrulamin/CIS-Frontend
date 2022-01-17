@@ -29,7 +29,7 @@
                 <div class="col-sm-12 col-md-7">
                   <div class="selectric-wrapper selectric-form-control selectric-selectric selectric-below">
                     <div class="selectric-hide-select">
-                      <select class="form-control selectric" tabindex="-1">
+                      <select name="category" [(ngModel)] = 'shout.categoryId' class="form-control selectric" tabindex="-1">
                         <option *ngFor="let c of categories" value="{{c.id}}">{{c.name}}</option>
 
                       </select>
@@ -55,9 +55,9 @@
                 </div>
               </div>
               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tags</label>
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Location</label>
                 <div class="col-sm-12 col-md-7">
-                  <div class="bootstrap-tagsinput"><input type="text" placeholder=""></div><input type="text"
+                  <div class="bootstrap-tagsinput"><input type="text" [(ngModel)]="shout.address"  name="address" placeholder=""></div><input type="text"
                     class="form-control inputtags" style="display: none;">
                 </div>
               </div>

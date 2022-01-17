@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import { CategoryService } from 'src/app/services/category.service';
 import { ConfigService } from 'src/app/services/config.service';
 import { ShoutService } from 'src/app/services/shout.service';
 import { UserService } from 'src/app/services/user.service';
@@ -25,7 +27,8 @@ export class ShoutsComponent implements OnInit {
     public userService: UserService,
     private toast: ToastrService,
     private config: ConfigService,
-    private activatedRout: ActivatedRoute
+    private activatedRout: ActivatedRoute,
+    private categoryService: CategoryService
   ) { }
 
   ngOnInit(): void {
@@ -39,27 +42,27 @@ export class ShoutsComponent implements OnInit {
       this.methodToGetShouts = this.reloadAllShout
     }
 
-   this.methodToGetShouts()
+    this.methodToGetShouts()
 
   }
 
   filterStatus() {
- 
+
 
     this.activatedRout.queryParams.subscribe(params => {
       let status = params['status']
       console.log(status);
 
-      
+
       if (status) {
         this.shouts = this.allShouts.filter(s => s.status == status)
         console.log("filterd");
-        
+
 
       } else {
         this.shouts = this.allShouts;
         console.log('ese');
-        
+
       }
     })
 
@@ -68,11 +71,34 @@ export class ShoutsComponent implements OnInit {
   reloadShoutForProvider() {
     this.localUser = this.userService.getUserFromLocalStorate()
 
-   this.shoutService.getAllOfCurrentProvider(this.localUser.id).subscribe(res => {
+    this.shoutService.getAllOfCurrentProvider(this.localUser.id).subscribe(res => {
       console.log(res);
-      this.allShouts = res.data.shout
-     this.filterStatus()
+      this.setShouts(res)
+
+      this.filterStatus()
     })
+  }
+
+  setShouts(res: any) {
+
+    this.allShouts = res.data.shout
+
+    this.allShouts.forEach(s => {
+      this.categoryService.getOne(s.categoryId.toString()).subscribe(res => {
+        console.log(res);
+
+        s.categoryName = res.data.category.name
+      })
+      this.userService.getOne(s.shouterId.toString()).subscribe(res => {
+        console.log("shouter name" + JSON.stringify(res));
+
+        s.shouterName = res.data.user.fullname
+      })
+
+
+    })
+
+
   }
 
   reloadShoutOfUser() {
@@ -81,8 +107,9 @@ export class ShoutsComponent implements OnInit {
 
     this.shoutService.getAllOfCurrentCitizen(this.localUser.id).subscribe(res => {
       console.log(res);
-      this.allShouts = res.data.shout
-     this.filterStatus()
+      this.setShouts(res)
+
+      this.filterStatus()
     })
   }
   reloadAllShout() {
@@ -91,7 +118,8 @@ export class ShoutsComponent implements OnInit {
 
     this.shoutService.getAll().subscribe(res => {
       console.log(res);
-      this.allShouts = res.data.shout
+      this.setShouts(res)
+
       this.filterStatus()
     })
   }
@@ -192,4 +220,6 @@ export class ShoutsComponent implements OnInit {
 
     return "article-badge-item bg-danger"
   }
+
+
 }
