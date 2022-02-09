@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
 import { CategoryService } from 'src/app/services/category.service';
 import { ConfigService } from 'src/app/services/config.service';
 import { ShoutService } from 'src/app/services/shout.service';
 import { UserService } from 'src/app/services/user.service';
 import { Shout, ShoutStatus } from './shout.model';
+import {ToastrService} from "../../services/toastr.service";
 
 @Component({
   selector: 'app-shouts',
@@ -188,7 +187,7 @@ export class ShoutsComponent implements OnInit {
 
       s.status = ShoutStatus.completed
       this.shoutService.updateShoutStatus(s).subscribe(res => {
-        this.toast.success("Issue Marked as completed successfully !")
+        this.toast.success("Message","Issue Marked as completed successfully !")
 
       })
     } else if (s.status == this.shoutStatus.completed) {

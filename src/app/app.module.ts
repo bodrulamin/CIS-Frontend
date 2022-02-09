@@ -25,7 +25,7 @@ import { ProviderSidebarComponent } from './components/provider-sidebar/provider
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ToastrModule } from 'ngx-toastr';
+
 import { SubscriptionComponent } from './components/subscription/subscription.component';
 @NgModule({
   declarations: [
@@ -53,14 +53,13 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
 
   ],
   providers: [
     UserService,
     ConfigService,
     ShoutService,
-    CategoryService
+    CategoryService,
 
   ],
   bootstrap: [AppComponent]
