@@ -27,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { SubscriptionComponent } from './components/subscription/subscription.component';
+import { ToastrService } from './services/toastr.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     ProviderSidebarComponent,
     SubscriptionComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,14 +55,14 @@ import { SubscriptionComponent } from './components/subscription/subscription.co
     HttpClientModule,
     CommonModule,
     BrowserAnimationsModule,
-
   ],
+  
   providers: [
     UserService,
     ConfigService,
     ShoutService,
     CategoryService,
-
+    ToastrService
   ],
   bootstrap: [AppComponent]
 })

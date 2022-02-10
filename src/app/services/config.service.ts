@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from './toastr.service';
 
 @Injectable({
   providedIn: 'root'

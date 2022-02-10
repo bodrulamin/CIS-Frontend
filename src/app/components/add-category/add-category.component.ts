@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+
 import { CategoryService } from 'src/app/services/category.service';
 import { ConfigService } from 'src/app/services/config.service';
 import { Category } from './category.model';
@@ -34,7 +33,7 @@ export class AddCategoryComponent implements OnInit {
 
   }
 
-  
+
 
   delete(cat: Category) {
     this.categoryService.deleteCategory(cat).subscribe(res => {
